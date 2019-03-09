@@ -1,21 +1,23 @@
 
-## Lettering.js, a jQuery plugin for radical Web Typography
-[![CDNJS](https://img.shields.io/cdnjs/v/lettering.js.svg)](https://cdnjs.com/libraries/lettering.js)
 
-We developed a lightweight, easy to use Javascript `span` injector for radical Web Typography, we're calling it "lettering-jay-ess", and we're releasing it today for free over on Github. Let me demo it for you: `</stevejobs>`
+## Persian-Lettering.js, a jQuery plugin for radical Web Typography
 
-### Individual Letter Control with Lettering.js
+Persian-Lettering is a Javascript `span` injector for radical Web Typography for Persian and Arabic languages. It is a fork from the origin [Lettering.js](https://github.com/davatron5000/Lettering.js).
+
+ The original Lettering.js does well with English typography, but Persian and Arabic typography needs to be treated a little bit differently, because some letters are connected to each other, forming letter groups that we can call them 'ligatures'.
+
+### Individual Letter Control
 We'll start with some really basic markup:
 
 ```html
-<h1 class="fancy_title">Some Title</h1>
+<h1 class="fancy_title">عنوان</h1>
 ```
 After including `jQuery 1.6.2+`, [download and include the minified version of Lettering.js](http://github.com/davatron5000/Lettering.js/downloads), then a script block with the magical `.lettering()` method:
 
 ```html
 <script>
 	  $(document).ready(function() {
-	    $(".fancy_title").lettering();
+	    $(".fancy_title").lettering();
 	  });
 </script>
 ```
@@ -23,23 +25,36 @@ The resulting code will churn your `.fancy_title` and output the following:
 
 ```html
 <h1 class="fancy_title">
-  <span class="char1">S</span>
-  <span class="char2">o</span>
-  <span class="char3">m</span>
-  <span class="char4">e</span>
-  <span class="char5"></span>
-  <span class="char6">T</span>
-  <span class="char7">i</span>
-  <span class="char8">t</span>
-  <span class="char9">l</span>
-  <span class="char10">e</span>
+  <span class="char1">ع</span>
+  <span class="char2">ن</span>
+  <span class="char3">و</span>
+  <span class="char4">ا</span>
+  <span class="char5">ن</span>
 </h1>
 ```
-Magical. Now the text is easy to manipulate in your CSS using an ordinal `.char#` pattern.  This plugin assumes basic counting skills, but it's a pretty fast and easy way to get control over every letter.
 
-### Letters, words, lines, and more!
+### Control Connected Persian and Arabic Letters
+In Persian and Arabic Languages, we don't want our letters to be seperated. Some letters have to be connected to next letters and some shouldn't. So here is where the magic happens:
+```html
+<script>
+	  $(document).ready(function() {
+	    $(".fancy_title").lettering('pligatures');
+	  });
+</script>
+```
+By adding the `pligatures` method, the resulting html is:
+```html
+<h1 class="fancy_title">
+  <span class="plig1">عنو</span>
+  <span class="plig2">ا</span>
+  <span class="plig3">ن</span>
+</h1>
+```
+Interesting huh? Now the text is easy to manipulate in your CSS using an ordinal `.plig#` pattern. 
 
-There you have it, but Lettering.js does even more! Lettering.js has the ability to split `words` and `lines` as well. If you want more information on how you can get radical with text, read the Lettering.js Wiki:
+### Letters, ligatuers, words, lines, and more!
+
+There you have it, but Persian-Lettering.js does even more! The same as It's origin, Persian-Lettering.js has the ability to split `words` and `lines` as well. If you want more information, read the Lettering.js Wiki:
 
 [https://github.com/davatron5000/Lettering.js/wiki](https://github.com/davatron5000/Lettering.js/wiki)
 
@@ -51,13 +66,7 @@ If you're going through the trouble to load a fancy font and that word or phrase
 
 ### Accessibility
 
-Lettering.js is now accessible by default. It uses an `aria-label` on the parent element and `aria-hidden` on each of the children to prevent screenreaders from pausing while reading each individual characters or words.
-
-### Non-Javascript Fallback
-As with any kind of Javascript, have a fall back plan in case the user doesn't have javascript enabled.  The bottom line is up to you, my bottom line would be "legible and on the screen". Also, use `lettering.min.js` [Download the Minified Version of Lettering.js here](http://github.com/davatron5000/Lettering.js/downloads)
-
-#### Performance Anti-Pattern
-Web performance patterns advise that you put Javascripts at the bottom of your page before your `</body>` tag.  There is an unfortunate side effect where you may experience a [FOUT (Flash of Unstyled Text)](http://paulirish.com/2009/fighting-the-font-face-fout/) when you're manipulating your text after the DOM has loaded.  Unfortunately, we found the best solution to avoid/minimize the FOUT caused by this plugin is to put your scripts (jQuery, Lettering.js) in the document `<head>`. On the one hand, your page will load slower. On the other hand, a flash/restyling makes your site feel slow. Users might ultimately feel the site is faster if they don't see the FOUT.
+Persian-Lettering.js is accessible by default. It uses an `aria-label` on the parent element and `aria-hidden` on each of the children to prevent screen readers from pausing while reading each individual characters or words.
 
 ### Download, Fork, Commit, Please.
-We really want Lettering.js to be a quality helper for web typography.  If you have any feedback or suggestions, please leave those over on the Github.  We're excited about typography on the web and want to help make it print quality.
+We really want Persian-Lettering.js to be a quality helper for Persian and Arabic web typography.  If you have any feedback or suggestions, please leave those over on the Github. 

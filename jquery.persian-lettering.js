@@ -1,14 +1,7 @@
 /*global jQuery */
-/*!
-* Lettering.JS 0.7.0
-*
-* Copyright 2010, Dave Rupert http://daverupert.com
-* Released under the WTFPL license
-* http://sam.zoy.org/wtfpl/
-*
-* Thanks to Paul Irish - http://paulirish.com - for the feedback.
-*
-* Date: Mon Sep 20 17:14:00 2010 -0600
+/*
+* Persian-Lettering.JS 1.0.0
+* by Mojtaba Taheri (http://mojtaba-taheri.ir)
 */
 (function($){
 	function injector(t, splitter, klass, after) {
@@ -34,6 +27,18 @@
 				injector($(this), '', 'char', '');
 			});
 
+		},
+
+		//Kerning Persian and Arabic typography are different from latin languages.
+		//Some letters are connected to the text letters, some are not.
+		//so we have to apply kerning for each LIGATURE instead of each letter.
+		//you can divide your Persian or Arabic text to ligatures using the following method:
+		pligatures : function() {
+			return this.each(function() {
+				ptext = $(this).text();
+				ptext = ptext.replace(/([آادذرزژو.،:؛؟ ])/g , '$1↔').replace(/([. ])/g, '↔$1').replace(/↔↔/g, '↔');
+				injector($(this).text(ptext), '↔', 'plig', '');
+			});
 		},
 
 		words : function() {

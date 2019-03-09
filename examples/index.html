@@ -1,135 +1,112 @@
-<!doctype html>  
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<!doctype html>
+
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="fa_IR">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Lettering.js Examples</title>
-  <meta name="description" content="A jQuery Plugin that allows you to style each individual letter and more.">
-  <meta name="author" content="Dave Rupert">
-
-  <meta name="viewport" content="width=device-width; initial-scale=1.0">
-	<link rel="stylesheet" href="style.css" type="text/css" media="screen"></link>
-	
-	<style type="text/css" media="screen">
-		.demo {
-			padding: 50px;
-			border:1px solid #ccc;
-			font-weight:bold;
-			color: red;
-			background:#d0d0d0;
-			font-size:20px;
-			line-height:1.5;
-			text-align:center;
-		}
-	
-		.demo h1 { font-size:72px;  text-transform:uppercase; margin-bottom:0px;}
-		.char2,
-		#demo2 .word2,
-		.line2 { color: orange; }
-		.char3,
-		.word3,
-		.line3 { color: yellow; }
-		.char4,
-		.line4 { color: blue; }
-		.char5 { color: green; }
-		.char6 { color: indigo; }
-		.char7 { color: violet; }
-	</style>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src="../jquery.lettering.js"></script>
-  <script>
-  	$(document).ready(function() {
-			$("#demo1 h1").lettering();
-			$("#demo2 h1").lettering('words');
-			$("#demo3 p").lettering('lines');
-			$("#demo4 h1").lettering('words').children("span").lettering();
-			$("#demo5 h1").lettering().children("span").css({'display':'inline-block', '-webkit-transform':'rotate(-25deg)'});
-		});
-  </script>
+    <title>مثال‌های Persian-Lettering.js</title>
+    <meta name="description" content="A jQuery Plugin that allows you to style each individual Persian and Arabic ligatures and more.">
+    <meta name="author" content="Mojtaba Taheri">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen"></link>
 
 </head>
 
 <body>
 
-  <div id="container">
-    <header>
-			<h1 id="thebrand">Lettering.JS</h1>
-			<p>The following are some hokey examples of how you can implement LETTERING.JS.
-    </header>
-    
-    <article id="main">
-			<section id='lettering-demo'>
-				<h2>Letters</h2>
-				<h4>The HTML</h4>
-<pre><code>	&lt;div id=&quot;demo1&quot; class=&quot;demo&quot;&gt;
-&nbsp;&nbsp;&lt;h1&gt;Rainbow&lt;/h1&gt;
+    <div id="container">
+        <header>
+            <h1 id="thebrand">Persian-Lettering.JS</h1>
+            <p>Persian-Lettering.JS یک پلاگین جی‌کوئری برای انجام کرنینگ، تنظیم فواصل و ایجاد جلوه‌های خلاقانه برای تایپوگرافی فارسی و عربی است. این پلاگین، برگرفته از <a href="http://letteringjs.com/">Lettering.JS</a> است و با افزدون متدی جدید، برای تایپوگرافی فارسی و عربی سفارشی‌سازی شده است. برخی از مثال‌های پیاده سازی Persian-Lettering.js را در ادامه می بینید.
+        </header>
+
+        <article id="main">
+            <section id='lettering-demo'>
+                <h2>حروف</h2>
+                <p>این پلاگین قابلیت تفکیک تک تک حروف را دارد. اما با توجه به ماهیت ذاتی حروف فارسی و عربی، انجام این کار باعث از هم گسیختگی حروف می‌شود و چندان برای ما کاربردی نیست، مگر برای اهدافی خاص.</p>
+                <h3>HTML</h3>
+                <pre><code>&lt;div id=&quot;letters-demo&quot; class=&quot;demo&quot;&gt;
+&nbsp;&nbsp;&lt;p class="demo-text"&gt;رنگین کمان&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
 
-<h4>The jQuery</h4>
-<pre><code>$(document).ready(function() {
-&nbsp;&nbsp;$("#demo1 h1").lettering();
+                <h3>jQuery</h3>
+                <pre><code>$(document).ready(function() {
+&nbsp;&nbsp;$("#letters-demo .demo-text").lettering();
 });
 </code></pre>
 
-				<h4>The Result</h4>
-				<div id="demo1" class="demo">
-					<h1>Rainbow</h1>
-				</div>
-				
-			</section>
+                <h3>نتیجه</h3>
+                <div id="letters-demo" class="demo">
+                    <p class="demo-text">رنگین کمان</p>
+                </div>
 
-			<section id='words-demo'>
-				<h2>Words</h2>
-				<code><pre>$("#demo2 h1").lettering('words');</pre></code>
+            </section>
 
-			<h4>The Result</h4>
-				<div id="demo2" class="demo">
-					<h1>Hi, Multi Color</h1>
-				</div>
-			</section>
+            <section id='ligatures-demo'>
+                <h2>لیگچر (لیگاتور)ها</h2>
+                <p>در زبان فارسی و عربی و دیگر زبان‌هایی که از این حروف بهره می‌برند، بعضی حروف به حروف بعد از خود می‌چسبند و یک ترکیب چند حرفی را ایجاد می‌کنند که ما اینجا آن‌ها را لیگِچر یا لیگاتور می‌نامیم. تمایز اصلی این پلاگین با نمونه‌های مشابه که برای زبان‌ها لاتین استفاده می‌شوند، شناسایی و تفکیک این لیگاتورها است. با تفکیک این لیگاتورها، امکانات جالبی برای تنظیم فواصل میان عناصر متن و سبک‌دهی‌های خلاقانه در اختیار طراحان وب قرار می‌گیرد.</p>
+                <h3>jQuery</h3>
+                <code><pre>$("#ligatures-demo .demo-text").lettering('pligatures');</pre></code>
 
-			<section id='lines-demo'>
-				<h2>Lines</h2>
-				<code><pre>$("#demo3 p").lettering('lines');</pre></code>
+                <h3>نتیجه</h3>
+                <div id="ligatures-demo" class="demo">
+                    <p class="demo-text">رنگین کمان</p>
+                </div>
+            </section>
+            <section id='words-demo'>
+                <h2>کلمات</h2>
+                <code><pre>$("#words-demo demo-text").lettering('words');</pre></code>
+                <h3>نتیجه</h3>
+                <div id="words-demo" class="demo">
+                    <p class="demo-text">یک سلام رنگی رنگی</p>
+                </div>
+            </section>
 
-			<h4>The Result</h4>
-				<div id="demo3" class="demo">
-					<p>This is an amazing<br/> Revolution in Typography. <br/> The possibilities are endless: <br/> Coloring, Vertical spacing, and Kerning.</p>
-				</div>
-			</section>
+            <section id='lines-demo'>
+                <h2>سطور</h2>
+                <code><pre>$("#lines-demo p").lettering('lines');</pre></code>
 
-			<section id='advanced1-demo'>
-				<h2>Advanced #1: Chaining 2 Methods</h2>
-<code><pre>$("#demo4 h1").lettering('words').children("span").lettering();</pre></code>
-			<h4>The Result</h4>
-				<div id="demo4" class="demo">
-					<h1>Double Rainbow</h1>
-				</div>
-			</section>
+                <h3>نتیجه</h3>
+                <div id="lines-demo" class="demo">
+                    <p>این یک پلاگین عالی
+                        <br/> برای تایپوگرافی است.
+                        <br/> امکانات فراوانی در اختیار شماست:
+                        <br/> رنگ, فاصله‌گذاری عمودی, و تنظیم فواصل بین حروف یا کرنینگ.</p>
+                </div>
+            </section>
 
-			<section id='advanced2-demo'>
-				<h2>Advanced #2: Chaining and Styling</h2>
-<code><pre>$("#demo5 h1").lettering()
-	.children("span").css({'display':'inline-block', '-webkit-transform':'rotate(-25deg)'});</pre></code>
-			<h4>The Result</h4>
-				<div id="demo5" class="demo">
-					<h1>WOOOoo!</h1>
-				</div>
-			</section>
+            <section id='advanced1-demo'>
+                <h2>پیشرفته: ترکیب دو روش</h2>
+                <p>شما می‌توانید دو روش را با هم ترکیب کنید، به طور مثال، اول متن را به کلمات و سپس کلمات را به لیگاتورها تفکیک کنید.</p>
+                <code><pre>$("#chain-demo demo-text").lettering('words').children("span").lettering('pligatures');</pre></code>
+                <h3>نتیجه</h3>
+                <div id="chain-demo" class="demo">
+                    <p class="demo-text">رنگین کمان</p>
+                </div>
+            </section>
 
-    </article>
-    
-    <footer>
-			<p>&copy;2010 Dave Rupert <a href="http://daverupert.com">http://daverupert.com</a>
-    </footer>
-  </div> 
+        </article>
+
+        <footer>
+            <p>&copy; مجتبی طاهری <a href="http://mojtaba-taheri.ir">http://mojtaba-taheri.ir</a>
+        </footer>
+    </div>
 
 </body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="../jquery.persian-lettering.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#letters-demo .demo-text").lettering();
+        $("#words-demo .demo-text").lettering('words');
+        $("#ligatures-demo .demo-text").lettering('pligatures');
+        $("#lines-demo p").lettering('lines');
+        $("#chain-demo .demo-text").lettering('words').children("span").lettering('pligatures');
+    });
+</script>
+
 </html>
