@@ -1,6 +1,6 @@
 
 
-## Persian-Lettering.js, a jQuery plugin for radical Web Typography
+## Persian-Lettering.js, a jQuery plugin for radical Persian and Arabic Web Typography
 
 Persian-Lettering is a Javascript `span` injector for radical Web Typography for Persian and Arabic languages. It is a fork from the origin [Lettering.js](https://github.com/davatron5000/Lettering.js).
 
