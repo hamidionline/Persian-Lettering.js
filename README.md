@@ -2,7 +2,7 @@
 
 ## Persian-Lettering.js, a jQuery plugin for radical Persian and Arabic Web Typography
 
-Persian-Lettering is a Javascript `span` injector for radical Web Typography for Persian and Arabic languages. It is a fork from the origin [Lettering.js](https://github.com/davatron5000/Lettering.js).
+Persian-Lettering is a Javascript `span` injector for radical Web Typography for Persian and Arabic languages. It can be used for kerning, or other creative affects, when working whti Persian and Aranic typography. It is a fork from the original [Lettering.js](https://github.com/davatron5000/Lettering.js).
 
  The original Lettering.js does well with English typography, but Persian and Arabic typography needs to be treated a little bit differently, because some letters are connected to each other, forming letter groups that we can call them 'ligatures'.
 
@@ -12,7 +12,7 @@ We'll start with some really basic markup:
 ```html
 <h1 class="fancy_title">عنوان</h1>
 ```
-After including `jQuery 1.6.2+`, [download and include the minified version of Lettering.js](http://github.com/davatron5000/Lettering.js/downloads), then a script block with the magical `.lettering()` method:
+After including `jQuery 1.6.2+`, download and include the jquery.persian-lettering.js or it's minified minified version in your project. Then a script block with the magical `.lettering()` method:
 
 ```html
 <script>
